@@ -7,13 +7,16 @@ import "slick-carousel/slick/slick-theme.css";
 import Header from "./components/Header";
 import SlideContent from "./components/SlideContent";
 import Cards from "./components/Cards";
+import Electronic from "./components/Electronic";
+import Rotate from "./components/Rotate";
 
 function App() {
   return (
     <>
       <Header />
-      {/* <SlideContent /> */}
       <Cards />
+      <Electronic />
+      <Rotate />
     </>
   );
 }

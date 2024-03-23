@@ -1,8 +1,8 @@
 import React from "react";
-import CardItem from "./CardItem";
-import { Col, Row } from "react-bootstrap";
 import Slider from "react-slick";
-const Cards = () => {
+import { Col, Row } from "react-bootstrap";
+
+const Electronic = () => {
   const button = React.useRef();
   var settings = {
     dots: false,
@@ -12,7 +12,7 @@ const Cards = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     prevArrow: ".prev",
-    nextArrow: ".next", 
+    nextArrow: ".next",
     responsive: [
       {
         breakpoint: 768,
@@ -47,7 +47,7 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2014/03/24/13/42/t-shirt-294078_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/laptop-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
@@ -55,7 +55,7 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2013/07/12/15/34/shirt-150087_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/mobile-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
@@ -63,7 +63,7 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2013/07/12/18/22/t-shirt-153366_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/mobile-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
@@ -71,7 +71,7 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2013/07/12/15/34/shirt-150086_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/laptop-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
@@ -79,7 +79,7 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2013/07/12/18/22/t-shirt-153369_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/mobile-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
@@ -87,21 +87,22 @@ const Cards = () => {
       head: "Man T-shirt",
       para: "price",
       price: "$30",
-      timg: "https://cdn.pixabay.com/photo/2012/04/14/16/20/t-shirt-34481_1280.png",
+      timg: "https://themewagon.github.io/eflyer/images/mobile-img.png",
       buyproduct: "Buy Now",
       seemore: "See More",
     },
   ];
   return (
-    <>
-      <div className="my_container pt-4 ">
+    <div>
+      <div className="my_container pt-5 ">
         <h2 className="ff_poppins fs_lg clr_moreblack fw-bold text-center py-4">
-          Man & Woman Fashion
+          Electronic
         </h2>
         <Slider {...settings} ref={button} className="">
-          {products.map((product, index) => (
+          {
+          products.map((product, index) => (
             <Col lg="4" className="px-3">
-              <div className="box_main mt-5 mb-5">
+              <div className="box_main mt-4 mb-5 h-100">
                 <h1 className="ff_poppins fs_md fw-semibold clr_normalblack text-center">
                   {product.head}
                 </h1>
@@ -150,8 +151,8 @@ const Cards = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Cards;
+export default Electronic;

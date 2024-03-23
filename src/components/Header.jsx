@@ -4,13 +4,16 @@ import {
   faCartShopping,
   faUser,
   faMagnifyingGlass,
+  faCross,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Slider from "react-slick";
 const Header = () => {
+  const [nav, setnav] = useState(true);
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -19,10 +22,10 @@ const Header = () => {
     autoplaySpeed: 3000,
   };
   return (
-    <div className="head_bg ">
+    <div className="head_bg overflow-hidden">
       <div className="bg_blur">
         <div className="my_container">
-          <div className="bg_brown py-3 ">
+          <div className="bg_brown py-3 d-md-block d-none">
             <ul className=" d-flex justify-content-between align-items-center mx_650 mx-auto mb-0 ps-0">
               <li>
                 <a
@@ -73,8 +76,13 @@ const Header = () => {
             </div>
           </div>
           {/* ------head---------- */}
-          <div className="d-flex align-items-center justify-content-between pt-4">
-            <div>
+          <div className="d-flex align-items-center justify-content-between pt-4 px-lg-0 px-5">
+            <div
+              className="cur_pointr"
+              onClick={() => {
+                setnav(false);
+              }}
+            >
               <div className="click_nav"></div>
               <div className="click_nav2"></div>
               <div className="click_nav3"></div>
@@ -96,28 +104,38 @@ const Header = () => {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-            <div
-              id="head_input"
-              className="d-flex align-items-center search_style"
-            >
-              <input className="w-100 " type="search" placeholder="search" />
-              <div className="bg_ylow">
-                <FontAwesomeIcon
-                  className="clr_lytwhite "
-                  icon={faMagnifyingGlass}
-                />
+            <div className="d-lg-block d-none">
+              <div
+                id="head_input"
+                className="d-flex align-items-center search_style "
+              >
+                <input className="w-100 " type="search" placeholder="search" />
+                <div className="bg_ylow">
+                  <FontAwesomeIcon
+                    className="clr_lytwhite cur_pointr"
+                    icon={faMagnifyingGlass}
+                  />
+                </div>
               </div>
             </div>
-            <div>
-              <select className="ff_poppins clr_lytblack fs_sm">
-                <option value="A">English</option>
-                <option value="B">French</option>
-              </select>
+            <div className="d-lg-block d-none">
+              <div className="bg-white d-flex align-items-center ps-2 br_rdc12 ">
+                <div>
+                  <img
+                    src="https://themewagon.github.io/eflyer/images/flag-uk.png"
+                    alt="flag"
+                  />
+                </div>
+                <select className="ff_poppins clr_lytblack fs_sm br_rdc12">
+                  <option value="A">English</option>
+                  <option value="B">French</option>
+                </select>
+              </div>
             </div>
             <div className="d-flex">
               <div className="cart_hover">
                 <FontAwesomeIcon
-                  className="clr_lytwhite clr_set"
+                  className="clr_lytwhite clr_set cur_pointr"
                   icon={faCartShopping}
                 />
                 <a
@@ -129,7 +147,7 @@ const Header = () => {
               </div>
               <div className="ps-4 cart_hover">
                 <FontAwesomeIcon
-                  className="clr_lytwhite clr_set"
+                  className="clr_lytwhite clr_set cur_pointr"
                   icon={faUser}
                 />
                 <a
@@ -141,8 +159,37 @@ const Header = () => {
               </div>
             </div>
           </div>
+          <div className="d-lg-none d-block">
+            <div className="d-flex justify-content-center pt-5 gap-5">
+              <div
+                id="head_input"
+                className="d-flex align-items-center search_style "
+              >
+                <input className="w-100 " type="search" placeholder="search" />
+                <div className="bg_ylow">
+                  <FontAwesomeIcon
+                    className="clr_lytwhite cur_pointr"
+                    icon={faMagnifyingGlass}
+                  />
+                </div>
+              </div>
+              <div className="bg-white d-flex align-items-center ps-2 br_rdc12">
+                <div>
+                  <img
+                    src="https://themewagon.github.io/eflyer/images/flag-uk.png"
+                    alt="flag"
+                  />
+                </div>
+                <select className="ff_poppins clr_lytblack fs_sm br_rdc12">
+                  <option value="A">English</option>
+                  <option value="B">French</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           {/* -----------------slide--------------- */}
-          <div className="pt-5 mt-5">
+          <div className="pt-lg-5 mt-5">
             <Slider className="pt-5" {...settings}>
               <div>
                 <h3 className="ff_poppins fw-bold fs_xl clr_lytwhite mx_700 text-center mx-auto">
@@ -197,6 +244,53 @@ const Header = () => {
             </Slider>
           </div>
         </div>
+      </div>
+      {/* -------------side nav-------- */}
+
+      <div>
+        <ul className={nav ? "side_nave l_m100" : "side_nave l_0"}>
+          <li>
+            <FontAwesomeIcon
+              onClick={() => {
+                setnav(true);
+              }}
+              className="clr_lytwhite cross_style cur_pointr"
+              icon={faXmark}
+            />
+          </li>
+          <li>
+            <a
+              className="ff_poppins fs_md fw-semibold clr_white nav_lihovr"
+              href="#"
+            >
+              Home
+            </a>
+          </li>
+          <li className="pt-4">
+            <a
+              className="ff_poppins fs_md fw-semibold clr_white nav_lihovr"
+              href="#"
+            >
+              Function
+            </a>
+          </li>
+          <li className="pt-4">
+            <a
+              className="ff_poppins fs_md fw-semibold clr_white nav_lihovr"
+              href="#"
+            >
+              Electronic
+            </a>
+          </li>
+          <li className="pt-4">
+            <a
+              className="ff_poppins fs_md fw-semibold clr_white nav_lihovr"
+              href="#"
+            >
+              Jewellery
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );
